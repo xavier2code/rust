@@ -1,0 +1,2 @@
+# rust
+foundation for rust.
