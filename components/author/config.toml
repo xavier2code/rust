@@ -1,0 +1,4 @@
+[settings]
+directory = "docs"
+replacement = "/**/n */n **//n"
+filter_suffix = ["java"]
