@@ -1,0 +1,19 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["xavier2code"]
+edition = "2021"
+license = "Apache-2.0"
+readme = "README.md"
+description = ""
+homepage = ""
+repository = ""
+keywords = ["rust"]
+
+include = ["src/**/*", "LICENSE", "README"]
+
+[[bin]]
+name = "rust"
+
+[dependencies]
+author = { path = "components/author"}
