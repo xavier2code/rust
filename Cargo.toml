@@ -18,4 +18,3 @@ name = "rust"
 [dependencies]
 author = { path = "components/author" }
 card = { path = "components/card" }
-libs = { path = "components/libs" }
