@@ -5,6 +5,7 @@ fn main() {
     let command = args.get(1).map(|s| s.as_str()).unwrap_or_else(|| "");
     match command {
         "author" => author::init(),
+        "card" => card::init(),
         _ => println!("Unknown command"),
     }
 }
