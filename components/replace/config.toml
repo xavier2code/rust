@@ -1,3 +1,0 @@
-directory = "."
-replacement = ""
-filter_suffix = ["md", "toml"]

@@ -13,9 +13,7 @@ keywords = ["rust"]
 include = ["src/**/*", "LICENSE", "README"]
 
 [[bin]]
-name = "rust"
+name = "rustlet"
 
 [dependencies]
-replace = { path = "components/replace" }
-card = { path = "components/card" }
-nano = { path = "components/nano" }
+cli = { path = "components/cli" }
