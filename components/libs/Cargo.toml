@@ -3,6 +3,10 @@ name = "libs"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+crate-type = ["lib"]
+
 [dependencies]
 toml = "0.8.20"
 walkdir = "2.5.0"
+tempfile = "3.16.0"

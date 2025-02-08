@@ -4,9 +4,11 @@
 // - Ensure the `config.toml` file is correctly configured with the `directory`, `replacement`, and `filter_suffix` fields.
 // - Run the application to process the files according to the configuration.
 
+mod content_replacer;
+
+use serde::Deserialize;
 use libs::toml;
 use libs::walkdir::WalkDir;
-use serde::Deserialize;
 use std::path::Path;
 
 /// Initialize function, loads configuration and processes files.
@@ -30,7 +32,7 @@ struct Settings {
 /// * `file_path` - Path to the configuration file.
 ///
 /// # Returns
-/// Returns `Settings` struct on success, error on failure.
+/// * `Settings` struct on success, error on failure.
 fn load_config(file_path: &str) -> Result<Settings, Box<dyn std::error::Error + 'static>> {
     match std::fs::read_to_string(file_path) {
         Ok(contents) => match toml::from_str(&contents) {
@@ -47,7 +49,7 @@ fn load_config(file_path: &str) -> Result<Settings, Box<dyn std::error::Error + 
 /// * `settings` - Configuration containing directory path, replacement string, and file suffix filter.
 ///
 /// # Returns
-/// Returns `()` on success, error on failure.
+/// * `()` on success, error on failure.
 fn process_file(settings: Settings) -> Result<(), Box<dyn std::error::Error>> {
     for entry in WalkDir::new(&settings.directory)
         .into_iter()
@@ -74,7 +76,7 @@ fn process_file(settings: Settings) -> Result<(), Box<dyn std::error::Error>> {
 /// * `replacement` - Content to replace.
 ///
 /// # Returns
-/// Returns `()` on success, error on failure.
+/// * `()` on success, error on failure.
 fn replace_content(file_path: &Path, replacement: &str) -> Result<(), Box<dyn std::error::Error>> {
     let contents = std::fs::read_to_string(file_path)?;
     let new_contents = contents.replace("test", replacement);
@@ -87,8 +89,8 @@ fn replace_content(file_path: &Path, replacement: &str) -> Result<(), Box<dyn st
 #[cfg(test)]
 mod tests {
     use super::*;
+    use libs::tempfile::tempdir;
     use std::fs;
-    use tempfile::tempdir;
 
     /// Tests loading configuration file functionality.
     #[test]

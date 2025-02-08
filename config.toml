@@ -1,4 +1,0 @@
-[settings]
-directory = ""
-replacement = "/**/n */n **//n"
-filter_suffix = ["java"]

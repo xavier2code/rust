@@ -16,5 +16,6 @@ include = ["src/**/*", "LICENSE", "README"]
 name = "rust"
 
 [dependencies]
-author = { path = "components/author" }
+replace = { path = "components/replace" }
 card = { path = "components/card" }
+nano = { path = "components/nano" }
